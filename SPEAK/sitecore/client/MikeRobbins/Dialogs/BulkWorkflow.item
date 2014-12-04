@@ -34,11 +34,11 @@ content-length: 1
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 5102
+content-length: 5112
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
-    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fMikeRobbins%2fBulkWorkflow%2fBulkWorkflow.js" ph="Page.Code" uid="{80E3DC19-C6B1-4A86-B69C-D435827D2848}" />
+    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fMikeRobbins%2fDialogs%2fBulkWorkflow%2fBulkWorkflow.js" ph="Page.Code" uid="{80E3DC19-C6B1-4A86-B69C-D435827D2848}" />
     <r id="{7BA20861-BC27-4F0E-94DD-8F974628A5C4}" ph="Page.Body" uid="{2893FB8A-59F0-4103-B050-D4095573A3F9}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="&amp;Id=HeaderTitle&amp;Text=Bulk+Set+Workflow" ph="DialogHeader.Title" uid="{1DC97590-77EC-4F75-A687-D86F7D22CAAA}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.ApplyWorkflow()&amp;BackgroundPosition=-68px+-119px&amp;Id=btnApplyPermissions&amp;IsEnabled=true&amp;ButtonType=Primary&amp;Tooltip=Apply+Workflow&amp;ImageUrl=%2fsitecore%2fshell%2fclient%2fSpeak%2fAssets%2fimg%2fsc-sprite-white.png&amp;Text=Apply+Workflow" ph="DialogHeader.Buttons" uid="{F5005B19-B18B-47BE-B0CA-D92005C2FECA}" />
@@ -178,7 +178,7 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: 376f2792-9547-4d55-9b2f-8079830c5787
+revision: a5fa6864-1341-4171-b68b-27d5ac1da7fd
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -214,14 +214,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-376f2792-9547-4d55-9b2f-8079830c5787
+a5fa6864-1341-4171-b68b-27d5ac1da7fd
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20141204T112153:635532889137151690
+20141204T115750:635532910702478007
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
