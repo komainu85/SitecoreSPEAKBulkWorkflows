@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkWorkflow", "SitecoreSPEAKBulkWorkflow\BulkWorkflow.csproj", "{377D7941-91C7-4C45-90CB-656536B60F67}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "SPEAK", "SPEAK\SPEAK.scproj", "{402C0516-2D57-4C90-B559-115D3BC3C6EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

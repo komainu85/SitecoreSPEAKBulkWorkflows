@@ -1,0 +1,29 @@
+----item----
+version: 1
+id: {AA5BBB95-8ED5-4918-935B-A884C4700777}
+database: core
+path: /sitecore/client/MikeRobbins/Dialogs/BulkWorkflow/PageSettings/CancelButtonRuleDefinition
+parent: {5B044B74-3EA6-4187-AD09-A8E62791C780}
+name: CancelButtonRuleDefinition
+master: {00000000-0000-0000-0000-000000000000}
+template: {1F99AE6E-22B8-419E-81DB-A983E619325E}
+templatekey: RuleDefinition
+
+----field----
+field: {431A0113-9D08-4DAE-8C5B-AC8301512BD8}
+name: Rule
+key: rule
+content-length: 362
+
+<?xml version="1.0" encoding="utf-16"?>
+<ruleset>
+  <rule>
+    <conditions>
+      <condition id="{B5CF2ABD-0811-4220-9805-8F6E62F4F4AC}" uid="2015C4932EB341C995BE2E89AE936EA4" />
+    </conditions>
+    <actions>
+      <action id="{5C48DD1A-CA07-4AAF-86BF-84F0885BAE41}" uid="{3CBF1A75-F437-48E0-8575-6F764BFF8080}" />
+    </actions>
+  </rule>
+</ruleset>
+----field
