@@ -1,11 +1,8 @@
-﻿using Sitecore.Data.Items;
+﻿using System.Collections.Generic;
+using Sitecore.Data.Items;
 using Sitecore.Workflows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace SitecoreSPEAKBulkWorkflow.DataAccess
+namespace MikeRobbins.BulkWorkflow.DataAccess
 {
     public class StandardValuesUpdater
     {
