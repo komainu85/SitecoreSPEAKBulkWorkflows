@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {80A96869-F9C8-4660-B977-AA55F37E4E50}
+database: core
+path: /sitecore/client/Applications/Launchpad/PageSettings/Buttons/MikeRobbins/Bulk Workflows
+parent: {C72E5BEA-E77A-4D2D-ACF3-B1EC94860B33}
+name: Bulk Workflows
+master: {00000000-0000-0000-0000-000000000000}
+template: {D4C7F5F9-8977-4E0C-B6CE-28AE8E0753E2}
+templatekey: LaunchPad-Button
+
+----field----
+field: {D25B56D4-23B6-4462-BE25-B6A6D7F38E13}
+name: Icon
+key: icon
+content-length: 31
+
+Office/32x32/users_relation.png
+----field----
+field: {044E3FDB-22AE-4E6C-B50E-2ABDFBABD338}
+name: Link
+key: link
+content-length: 49
+
+/sitecore/client/MikeRobbins/Dialogs/BulkWorkflow
+----version----
+language: en
+version: 1
+revision: 97eef201-1587-4ef8-b5b1-e1728c4e3de4
+
+----field----
+field: {AA4A4643-5BFC-45A7-B9D9-5183A5211D99}
+name: Text
+key: text
+content-length: 14
+
+Bulk Workflows
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 14
+
+Bulk Workflows
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20141222T150115Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+97eef201-1587-4ef8-b5b1-e1728c4e3de4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20141223T093917:635549243577930855Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
