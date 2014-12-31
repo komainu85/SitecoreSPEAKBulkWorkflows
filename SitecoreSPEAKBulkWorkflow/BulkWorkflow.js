@@ -47,8 +47,8 @@
 
         GetWorkflow: function() {
 
-            var workflowService = new ItemService({
-                url: "/sitecore/api/ssc/workflow"
+            var workflowService = new EntityService({
+                url: "/sitecore/api/ssc/BulkWorkflow"
             });
 
             peopleService.fetchItem("05592656-56D7-4D85-AACF-30919EE494F9").execute().then(

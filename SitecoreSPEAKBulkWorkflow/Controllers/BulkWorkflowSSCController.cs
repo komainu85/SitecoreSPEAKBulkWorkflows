@@ -8,15 +8,22 @@ using Sitecore.Data.Items;
 using MikeRobbins.BulkWorkflow.Models;
 using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Sitecore.Services;
+using MikeRobbins.BulkWorkflow.Repository;
 
 namespace MikeRobbins.BulkWorkflow.Controllers
 {
     [ServicesController]
-    public class BulkWorkflowSSCController :  EntityService<Workflow>
+    public class BulkWorkflowSSCController : EntityService<Workflow>
     {
         public BulkWorkflowSSCController(IRepository<Workflow> repository)
             : base(repository)
         {
         }
+
+        public BulkWorkflowSSCController()
+            : this(new WorkflowRepository())
+        {
+        }
+
     }
 }

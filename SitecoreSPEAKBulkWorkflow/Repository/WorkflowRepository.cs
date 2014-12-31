@@ -25,7 +25,7 @@ namespace MikeRobbins.BulkWorkflow.Repository
 
         public Workflow FindById(string id)
         {
-            throw new NotImplementedException();
+            return new Workflow() {DisplayName="test",Id="ewrer", WorkflowID="dfsff"  };
         }
 
         public IQueryable<Workflow> GetAll()
