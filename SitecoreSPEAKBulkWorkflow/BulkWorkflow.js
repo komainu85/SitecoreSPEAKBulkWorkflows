@@ -6,7 +6,7 @@
         initialized: function () { },
 
         initialize: function () {
-         this.GetWorkflow();
+       //  this.GetWorkflow();
 
             $.ajax({
                 url: "/api/sitecore/BulkWorkflow/GetAllWorkflows",
@@ -45,18 +45,18 @@
             });
         },
 
-        GetWorkflow: function() {
+        //GetWorkflow: function() {
 
-            var workflowService = new EntityService({
-                url: "/sitecore/api/ssc/BulkWorkflow"
-            });
+        //    var workflowService = new EntityService({
+        //        url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow/"
+        //    });
 
-            peopleService.fetchItem("05592656-56D7-4D85-AACF-30919EE494F9").execute().then(
-                function(workflows) {
-                    var cheese = "";
+        //    workflowService.fetchEntities().execute().then(
+        //        function(workflows) {
+        //            var cheese = "";
 
-                });
-        },
+        //        });
+        //},
 
     });
 

@@ -105,11 +105,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BulkWorkflowSSCController.cs" />
     <Compile Include="Controllers\BulkWorkflowController.cs" />
+    <Compile Include="Controllers\BulkWorkflowLegacyController.cs" />
     <Compile Include="DataAccess\StandardValuesUpdater.cs" />
+    <Compile Include="Models\Template.cs" />
     <Compile Include="Models\Workflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\TemplateRepository.cs" />
     <Compile Include="Repository\WorkflowRepository.cs" />
   </ItemGroup>
   <ItemGroup>
