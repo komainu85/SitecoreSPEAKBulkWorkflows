@@ -14,12 +14,7 @@ namespace MikeRobbins.BulkWorkflow.Controllers
         {
             var workflows = Sitecore.Data.Database.GetDatabase("master").WorkflowProvider.GetWorkflows();
 
-            var results = new List<Models.Workflow>();
-
-            foreach (var workflow in workflows)
-            {
-                results.Add(new Models.Workflow() { DisplayName = workflow.Appearance.DisplayName, WorkflowID = workflow.WorkflowID });
-            }
+            var results = workflows.Select(workflow => new Models.Workflow() {DisplayName = workflow.Appearance.DisplayName, WorkflowID = workflow.WorkflowID}).ToList();
 
             return JsonConvert.SerializeObject(results);
         }

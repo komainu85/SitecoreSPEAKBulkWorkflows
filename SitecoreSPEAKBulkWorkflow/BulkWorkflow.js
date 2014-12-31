@@ -6,6 +6,8 @@
         initialized: function () { },
 
         initialize: function () {
+         this.GetWorkflow();
+
             $.ajax({
                 url: "/api/sitecore/BulkWorkflow/GetAllWorkflows",
                 type: "POST",
@@ -41,6 +43,19 @@
                     this.pi.viewModel.hide();
                 }
             });
+        },
+
+        GetWorkflow: function() {
+
+            var workflowService = new ItemService({
+                url: "/sitecore/api/ssc/workflow"
+            });
+
+            peopleService.fetchItem("05592656-56D7-4D85-AACF-30919EE494F9").execute().then(
+                function(workflows) {
+                    var cheese = "";
+
+                });
         },
 
     });
