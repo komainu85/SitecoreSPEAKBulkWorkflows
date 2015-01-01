@@ -1,26 +1,10 @@
-﻿define(["sitecore"], function (Sitecore) {
+﻿define(["sitecore", "jquery", "underscore"], function (Sitecore,$,_) {
     var BulkWorkflow = Sitecore.Definitions.App.extend({
-
-        filesUploaded: [],
 
         initialized: function () { },
 
         initialize: function () {
-       //  this.GetWorkflow();
-
-            $.ajax({
-                url: "/api/sitecore/BulkWorkflow/GetAllWorkflows",
-                type: "POST",
-                context: this,
-                success: function (data) {
-                    var json = jQuery.parseJSON(data);
-
-                    for (var i = 0; i < json.length; i++) {
-                        var obj = json[i];
-                        this.JsonDS.add(obj);
-                    }
-                }
-            });
+            this.GetWorkflows();
         },
 
         ApplyWorkflow: function () {
@@ -45,19 +29,18 @@
             });
         },
 
-        //GetWorkflow: function() {
+        GetWorkflows: function ()
+        {
+            var workflowService = new EntityService({
+                url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow"
+            });
+            var result = workflowService.fetchEntities().execute().then(function (cheese)
+            {
+                var dsadsda = "";
+            });
 
-        //    var workflowService = new EntityService({
-        //        url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow/"
-        //    });
 
-        //    workflowService.fetchEntities().execute().then(
-        //        function(workflows) {
-        //            var cheese = "";
-
-        //        });
-        //},
-
+        }
     });
 
     return BulkWorkflow;

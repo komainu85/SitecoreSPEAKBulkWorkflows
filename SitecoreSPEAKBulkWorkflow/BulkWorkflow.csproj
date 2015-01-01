@@ -106,7 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BulkWorkflowController.cs" />
-    <Compile Include="Controllers\BulkWorkflowLegacyController.cs" />
+    <Compile Include="Controllers\TemplateController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataAccess\StandardValuesUpdater.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\Workflow.cs" />
