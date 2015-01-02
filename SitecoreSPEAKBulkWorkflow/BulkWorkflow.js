@@ -11,18 +11,49 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             this.GetWorkflows();
         },
 
-        initialize: function () {},
+        initialize: function () { },
 
         ApplyWorkflow: function () {
             this.pi.viewModel.show();
 
             var selectedWorkflow = this.workflow.viewModel.selectedValue();
-            var selectedTemplates= this.tvTemplates.viewModel.checkedItemIds();
+            var selectedTemplates = this.tvTemplates.viewModel.checkedItemIds();
+
+
+            var templateService = new entityService({
+                url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/template"
+            });
+
+   
+
+            for (var i = 0; i < selectedTemplates.length; i++) {
+                var selectedTemplate = selectedTemplates[i];
+
+                templateService.fetchEntity(selectedTemplate).execute(function (template) {
+
+                    template.should.be.an.instanceOf(entityService.Entity);
+
+                    template.WorkflowID = selectedWorkflow;
+
+                    template.save().then(function (savedTemplate) {
+                        savedTemplate.WorkflowID.should.eql(selectedWorkflow);
+                        done();
+
+                    }).fail(done);
+
+                }).fail(done);
+
+            }
+
+
+
+
+
 
             $.ajax({
                 url: "/api/sitecore/BulkWorkflow/ApplyWorkflow",
                 type: "POST",
-                data: { workflow: selectedWorkflow, "selectedTemplates": selectedTemplates},
+                data: { workflow: selectedWorkflow, "selectedTemplates": selectedTemplates },
                 context: this,
                 success: function (data) {
                     if (data == "True") {
