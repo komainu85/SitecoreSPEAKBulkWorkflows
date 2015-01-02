@@ -34,9 +34,12 @@
             var workflowService = new EntityService({
                 url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow"
             });
-            var result = workflowService.fetchEntities().execute().then(function (cheese)
+            var result = workflowService.fetchEntities().execute().then(function (workflows)
             {
-                var dsadsda = "";
+                for (var i = 0; i < workflows.length; i++) {
+                    var obj = workflows[i];
+                    this.JsonDS.add(obj.json());
+                }
             });
 
 
