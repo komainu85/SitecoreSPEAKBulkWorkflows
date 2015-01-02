@@ -1,11 +1,17 @@
-﻿define(["sitecore", "jquery", "underscore"], function (Sitecore,$,_) {
+﻿require.config({
+    paths: {
+        entityService: "/sitecore/shell/client/Services/Assets/lib/entityservice"
+    }
+});
+
+define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore, $, _, entityService) {
     var BulkWorkflow = Sitecore.Definitions.App.extend({
 
-        initialized: function () { },
-
-        initialize: function () {
+        initialized: function () {
             this.GetWorkflows();
         },
+
+        initialize: function () {},
 
         ApplyWorkflow: function () {
             this.pi.viewModel.show();
@@ -29,19 +35,20 @@
             });
         },
 
-        GetWorkflows: function ()
-        {
-            var workflowService = new EntityService({
+        GetWorkflows: function () {
+            var datasource = this.JsonDS;
+
+            var workflowService = new entityService({
                 url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow"
             });
-            var result = workflowService.fetchEntities().execute().then(function (workflows)
-            {
+
+            var result = workflowService.fetchEntities().execute().then(function (workflows) {
+                this.workflow.viewModel.items = workflows;
+
                 for (var i = 0; i < workflows.length; i++) {
-                    var obj = workflows[i];
-                    this.JsonDS.add(obj.json());
+                    datasource.add(workflows[i]);
                 }
             });
-
 
         }
     });
