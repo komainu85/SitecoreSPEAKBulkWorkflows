@@ -25,14 +25,15 @@ namespace MikeRobbins.BulkWorkflow.Repository
 
         public Workflow FindById(string id)
         {
-            return new Workflow() {DisplayName="test",Id="ewrer", WorkflowID="dfsff"  };
+            var workflow = Sitecore.Data.Database.GetDatabase("master").WorkflowProvider.GetWorkflow(id);
+            return new Workflow() { DisplayName = workflow.Appearance.DisplayName, Id = workflow.WorkflowID };
         }
 
         public IQueryable<Workflow> GetAll()
         {
             var workflows = Sitecore.Data.Database.GetDatabase("master").WorkflowProvider.GetWorkflows();
 
-            var results = workflows.Select(workflow => new Models.Workflow() { DisplayName = workflow.Appearance.DisplayName, WorkflowID = workflow.WorkflowID });
+            var results = workflows.Select(workflow => new Models.Workflow() { DisplayName = workflow.Appearance.DisplayName, Id = workflow.WorkflowID });
 
             return results.AsQueryable();
         }

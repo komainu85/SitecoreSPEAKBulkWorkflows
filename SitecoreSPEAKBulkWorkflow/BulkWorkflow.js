@@ -14,56 +14,34 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
         initialize: function () { },
 
         ApplyWorkflow: function () {
-            this.pi.viewModel.show();
+            var messagePanel = this.miMessages;
+            var progressIcon = this.pi;
+
+            progressIcon.viewModel.show();
 
             var selectedWorkflow = this.workflow.viewModel.selectedValue();
-            var selectedTemplates = this.tvTemplates.viewModel.checkedItemIds();
-
+            var selectedTemplates = this.tvTemplates.viewModel.checkedItemIds().split("|");;
 
             var templateService = new entityService({
                 url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/template"
             });
 
-   
+            var updated = 0;
 
             for (var i = 0; i < selectedTemplates.length; i++) {
                 var selectedTemplate = selectedTemplates[i];
 
-                templateService.fetchEntity(selectedTemplate).execute(function (template) {
-
-                    template.should.be.an.instanceOf(entityService.Entity);
-
+                templateService.fetchEntity(selectedTemplate).execute().then(function (template) {
                     template.WorkflowID = selectedWorkflow;
 
-                    template.save().then(function (savedTemplate) {
-                        savedTemplate.WorkflowID.should.eql(selectedWorkflow);
-                        done();
+                    template.save().then(function (savedTemplate) {                        updated++;                        if (updated == selectedTemplates.length) {
+                            progressIcon.viewModel.hide();
+                        }
 
-                    }).fail(done);
-
-                }).fail(done);
-
+                        messagePanel.addMessage("notification", { text: "Workflow applied successfully for " + savedTemplate.DisplayName, actions: [], closable: true, temporary: true });
+                    });
+                });
             }
-
-
-
-
-
-
-            $.ajax({
-                url: "/api/sitecore/BulkWorkflow/ApplyWorkflow",
-                type: "POST",
-                data: { workflow: selectedWorkflow, "selectedTemplates": selectedTemplates },
-                context: this,
-                success: function (data) {
-                    if (data == "True") {
-                        this.miMessages.addMessage("notification", { text: "Workflow applied successfully for " + this.workflow.viewModel.selectedItem().DisplayName, actions: [], closable: true, temporary: true });
-                    } else {
-                        this.miMessages.addMessage("warning", "An error occured applying workflow for " + this.workflow.viewModel.selectedItem().DisplayName + " , please try again");
-                    }
-                    this.pi.viewModel.hide();
-                }
-            });
         },
 
         GetWorkflows: function () {
@@ -74,8 +52,6 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             });
 
             var result = workflowService.fetchEntities().execute().then(function (workflows) {
-                this.workflow.viewModel.items = workflows;
-
                 for (var i = 0; i < workflows.length; i++) {
                     datasource.add(workflows[i]);
                 }
