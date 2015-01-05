@@ -34,7 +34,7 @@ content-length: 1
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 4957
+content-length: 5002
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -55,16 +55,16 @@ content-length: 4957
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=WorkflowLabelCol&amp;GridColumns=4" ph="WorkflowRow1.Content" uid="{D848A222-C818-48BB-9C1A-75B39BBDEB73}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=WorkflowLabel&amp;TextType=LargeLabel&amp;Text=Workflow%3a" ph="WorkflowLabelCol.Content" uid="{7E0A3BA9-4537-47B4-B2D4-FE955D448B4F}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=WorkflowTextCol&amp;GridColumns=8" ph="WorkflowRow1.Content" uid="{B9107643-54BC-40FC-ADB0-1E848DB8E460}" />
-    <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=workflow&amp;IsVisible=1&amp;DisplayFieldName=DisplayName&amp;Items=%7bBinding+JsonDS.Json%7d&amp;ValueFieldName=WorkflowID&amp;IsEnabled=1" ph="WorkflowTextCol.Content" uid="{1224D2F9-4195-4158-9FE0-4AB949ED2E35}" />
+    <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=workflow&amp;IsVisible=1&amp;DisplayFieldName=DisplayName&amp;Items=%7bBinding+JsonDS.Json%7d&amp;ValueFieldName=Id&amp;IsEnabled=1" ph="WorkflowTextCol.Content" uid="{1224D2F9-4195-4158-9FE0-4AB949ED2E35}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=RightPane&amp;GridColumns=6" ph="RowPanel.Content" uid="{0BBE67B9-8BB7-44D7-9560-F4BC17F47369}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="ContentAlign=Left&amp;Id=TemplateBorder&amp;UsePadding=1" ph="RightPane.Content" uid="{51D99885-DB54-4DF5-B3EA-2A95F3275DF6}" />
     <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=TemplateRow" ph="TemplateBorder.Content" uid="{6D34FC6B-2599-469E-8CE1-A2DD2A042881}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=TemplateLabelCol&amp;GridColumns=4" ph="TemplateRow.Content" uid="{D848A222-C818-48BB-9C1A-75B39BBDEB73}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=TemplateLabel&amp;TextType=LargeLabel&amp;Text=Templates%3a" ph="TemplateLabelCol.Content" uid="{7E0A3BA9-4537-47B4-B2D4-FE955D448B4F}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=TemplateTreeCol&amp;GridColumns=8" ph="TemplateRow.Content" uid="{B9107643-54BC-40FC-ADB0-1E848DB8E460}" />
-    <r id="{08B6767B-8E8A-41C8-8880-EFEBB4EAE0E3}" par="Id=tvTemplates&amp;ShowHiddenItems=1&amp;RootItem=%7b3C1715FE-6A13-4FCF-845F-DE308BA9741D%7d&amp;ShowSitecoreIcons=1" ph="TemplateTreeCol.Content" uid="{A5D32952-F382-4523-B8AF-5B8A36DAFED6}" />
+    <r id="{08B6767B-8E8A-41C8-8880-EFEBB4EAE0E3}" par="Id=tvTemplates&amp;SelectMode=1&amp;ShowHiddenItems=1&amp;RootItem=%7b3C1715FE-6A13-4FCF-845F-DE308BA9741D%7d&amp;ClickFolderMode=2&amp;ShowSitecoreIcons=1" ph="TemplateTreeCol.Content" uid="{A5D32952-F382-4523-B8AF-5B8A36DAFED6}" />
     <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=pi&amp;IsFullscreen=1&amp;AutoShowTimeout=1000&amp;Tooltip=Applying+Permissions" ph="Page.Body" uid="{60A81B68-E40E-481A-913A-7FED43BF98F6}" />
-    <r id="{314BF4B6-1875-4688-93BD-E2442FA2EA80}" par="Id=JsonDS" ph="Page.Body" uid="{03E1B76E-5D33-4F30-8538-15B0460B40B8}" />
+    <r id="{314BF4B6-1875-4688-93BD-E2442FA2EA80}" par="Id=JsonDS" ph="ApplicationContent.Main" uid="{03E1B76E-5D33-4F30-8538-15B0460B40B8}" />
   </d>
 </r>
 ----version----
@@ -178,7 +178,7 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: 4aa6aaf5-bc32-4365-a648-b44cd3d92429
+revision: a4711445-1538-4371-96fa-5ade19d7f588
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -214,14 +214,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4aa6aaf5-bc32-4365-a648-b44cd3d92429
+a4711445-1538-4371-96fa-5ade19d7f588
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 35
 
-20141224T145025:635550294258730074Z
+20150105T091029:635560458294992544Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
