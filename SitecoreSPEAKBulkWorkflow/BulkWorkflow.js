@@ -1,48 +1,63 @@
-﻿define(["sitecore"], function (Sitecore) {
+﻿require.config({
+    paths: {
+        entityService: "/sitecore/shell/client/Services/Assets/lib/entityservice"
+    }
+});
+
+define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore, $, _, entityService) {
     var BulkWorkflow = Sitecore.Definitions.App.extend({
 
-        filesUploaded: [],
-
-        initialized: function () { },
-
-        initialize: function () {
-            $.ajax({
-                url: "/api/sitecore/BulkWorkflow/GetAllWorkflows",
-                type: "POST",
-                context: this,
-                success: function (data) {
-                    var json = jQuery.parseJSON(data);
-
-                    for (var i = 0; i < json.length; i++) {
-                        var obj = json[i];
-                        this.JsonDS.add(obj);
-                    }
-                }
-            });
+        initialized: function () {
+            this.GetWorkflows();
         },
+
+        initialize: function () { },
 
         ApplyWorkflow: function () {
-            this.pi.viewModel.show();
+            var messagePanel = this.miMessages;
+            var progressIcon = this.pi;
+
+            progressIcon.viewModel.show();
 
             var selectedWorkflow = this.workflow.viewModel.selectedValue();
-            var selectedTemplates= this.tvTemplates.viewModel.checkedItemIds();
+            var selectedTemplates = this.tvTemplates.viewModel.checkedItemIds().split("|");;
 
-            $.ajax({
-                url: "/api/sitecore/BulkWorkflow/ApplyWorkflow",
-                type: "POST",
-                data: { workflow: selectedWorkflow, "selectedTemplates": selectedTemplates},
-                context: this,
-                success: function (data) {
-                    if (data == "True") {
-                        this.miMessages.addMessage("notification", { text: "Workflow applied successfully for " + this.workflow.viewModel.selectedItem().DisplayName, actions: [], closable: true, temporary: true });
-                    } else {
-                        this.miMessages.addMessage("warning", "An error occured applying workflow for " + this.workflow.viewModel.selectedItem().DisplayName + " , please try again");
-                    }
-                    this.pi.viewModel.hide();
-                }
+            var templateService = new entityService({
+                url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/template"
             });
+
+            var updated = 0;
+
+            for (var i = 0; i < selectedTemplates.length; i++) {
+                var selectedTemplate = selectedTemplates[i];
+
+                templateService.fetchEntity(selectedTemplate).execute().then(function (template) {
+                    template.WorkflowID = selectedWorkflow;
+
+                    template.save().then(function (savedTemplate) {                        updated++;                        if (updated == selectedTemplates.length) {
+                            progressIcon.viewModel.hide();
+                        }
+
+                        messagePanel.addMessage("notification", { text: "Workflow applied successfully for " + savedTemplate.DisplayName, actions: [], closable: true, temporary: true });
+                    });
+                });
+            }
         },
 
+        GetWorkflows: function () {
+            var datasource = this.JsonDS;
+
+            var workflowService = new entityService({
+                url: "/sitecore/api/ssc/MikeRobbins-BulkWorkflow-Controllers/bulkworkflow"
+            });
+
+            var result = workflowService.fetchEntities().execute().then(function (workflows) {
+                for (var i = 0; i < workflows.length; i++) {
+                    datasource.add(workflows[i]);
+                }
+            });
+
+        }
     });
 
     return BulkWorkflow;

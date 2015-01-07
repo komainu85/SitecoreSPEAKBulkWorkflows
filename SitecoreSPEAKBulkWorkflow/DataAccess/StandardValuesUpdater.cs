@@ -6,18 +6,15 @@ namespace MikeRobbins.BulkWorkflow.DataAccess
 {
     public class StandardValuesUpdater
     {
-        public void ApplyWorkflowToStandardValues(IWorkflow workflow, List<Item> standardValues)
+        public void ApplyWorkflowToStandardValues(IWorkflow workflow, Item standardValue)
         {
-            foreach (var standardValue in standardValues)
+            using (new Sitecore.SecurityModel.SecurityDisabler())
             {
-                using (new Sitecore.SecurityModel.SecurityDisabler())
-                {
-                    standardValue.Editing.BeginEdit();
+                standardValue.Editing.BeginEdit();
 
-                    standardValue.Fields["__Default workflow"].Value = workflow.WorkflowID;
+                standardValue.Fields["__Default workflow"].Value = workflow.WorkflowID;
 
-                    standardValue.Editing.EndEdit();
-                }
+                standardValue.Editing.EndEdit();
             }
         }
     }

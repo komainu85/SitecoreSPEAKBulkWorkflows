@@ -14,15 +14,15 @@ namespace MikeRobbins.BulkWorkflow.Controllers
 {
     [ValidateAntiForgeryToken]
     [ServicesController]
-    public class BulkWorkflowController : EntityService<Workflow>
+    public class TemplateController : EntityService<Template>
     {
-        public BulkWorkflowController(IRepository<Workflow> repository)
+        public TemplateController(IRepository<Template> repository)
             : base(repository)
         {
         }
 
-        public BulkWorkflowController()
-            : this(new WorkflowRepository())
+        public TemplateController()
+            : this(new TemplateRepository())
         {
         }
 
